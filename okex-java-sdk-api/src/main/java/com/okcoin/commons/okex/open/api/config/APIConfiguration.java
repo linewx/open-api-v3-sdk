@@ -3,6 +3,8 @@ package com.okcoin.commons.okex.open.api.config;
 import com.okcoin.commons.okex.open.api.constant.APIConstants;
 import com.okcoin.commons.okex.open.api.enums.I18nEnum;
 
+import java.net.Proxy;
+
 /**
  * API configuration information
  *
@@ -55,6 +57,8 @@ public class APIConfiguration {
      * internationalization  {@link com.okcoin.commons.okex.open.api.enums.I18nEnum}
      */
     private I18nEnum i18n;
+
+    private Proxy proxy;
 
     public APIConfiguration() {
         this(null);
@@ -152,5 +156,13 @@ public class APIConfiguration {
 
     public void setI18n(I18nEnum i18n) {
         this.i18n = i18n;
+    }
+
+    public Proxy getProxy() {
+        return proxy;
+    }
+
+    public void setProxy(Proxy proxy) {
+        this.proxy = proxy;
     }
 }

@@ -61,6 +61,9 @@ public class APIHttpClient {
         clientBuilder.readTimeout(this.config.getReadTimeout(), TimeUnit.SECONDS);
         clientBuilder.writeTimeout(this.config.getWriteTimeout(), TimeUnit.SECONDS);
         clientBuilder.retryOnConnectionFailure(this.config.isRetryOnConnectionFailure());
+        if (config.getProxy() != null) {
+            clientBuilder.proxy(config.getProxy());
+        }
         clientBuilder.addInterceptor((Interceptor.Chain chain) -> {
             final Request.Builder requestBuilder = chain.request().newBuilder();
             final String timestamp = DateUtils.getUnixTime();
